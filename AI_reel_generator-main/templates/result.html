@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Reel Ready - AI Reel Generator{% endblock %}
+
+{% block extra_css %}
+<style>
+    .result-section { padding: 4rem 0; background: #f8f9fa; min-height: 75vh; }
+    .result-card { max-width: 700px; margin: 0 auto; padding: 2rem; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,.1); text-align: center; }
+    .result-video { width: min(100%, 360px); max-height: 70vh; border-radius: 12px; background: #000; }
+    .result-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
+    .result-actions a { text-decoration: none; padding: .8rem 1.4rem; border-radius: 999px; font-weight: 600; }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="result-section">
+    <div class="container">
+        <div class="result-card">
+            <h1>🎉 Your Reel Is Ready!</h1>
+            <p>Your AI-generated reel was created successfully.</p>
+            <video class="result-video" src="{{ video_url }}" controls playsinline></video>
+            <div class="result-actions">
+                <a class="btn btn-primary" href="{{ video_url }}" target="_blank" download>Download Reel</a>
+                <a class="btn btn-outline-secondary" href="/create">Create Another</a>
+                <a class="btn btn-outline-secondary" href="/gallery">Open Gallery</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
