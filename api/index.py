@@ -18,7 +18,11 @@ LOCAL_REELS_DIR = STATIC_DIR / "reels"
 ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg"}
 MAX_UPLOAD_SIZE = 4 * 1024 * 1024  # Keep the Flask request small enough for Vercel.
 
-app = Flask(__name__)
+app = Flask(
+    __name__,
+    template_folder="../templates",
+    static_folder="../static"
+)
 app.config["MAX_CONTENT_LENGTH"] = MAX_UPLOAD_SIZE
 
 
